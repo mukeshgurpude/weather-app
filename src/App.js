@@ -2,11 +2,12 @@ import React from 'react';
 import styled from 'styled-components'
 
 import Sidebar from './components/nav'
+import Main from './components/main';
 
 function App() {
   return <>
     <SidebarWrapper role='navigation' children={<Sidebar/>}/>
-    <MainWrapper role='main'/>
+    <MainWrapper role='main' children={<Main/>}/>
   </>
 }
 
