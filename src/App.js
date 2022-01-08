@@ -18,7 +18,7 @@ const MainWrapper = styled.main`
   flex: 1;
   @media(min-width: 600px) {
     flex: 3;
-    height: 100vh;
+    min-height: 100vh;
   }
 `
 

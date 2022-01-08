@@ -10,4 +10,6 @@ export default function Card({header, content, footer}) {
 
 const Wrapper = styled.article`
   flex-flow: column nowrap;
+  background: var(--sidebar-background);
+  padding: .2rem .5rem;
 `
