@@ -40,9 +40,5 @@ code {
   display: flex;
   flex-flow: wrap;
 }
-.primary-color {
-  color: var(--primary-color);
-}
-.secondary-color {
-  color: var(--secondary-color);
-}
+.primary-color {color: var(--primary-color);}
+.secondary-color {color: var(--secondary-color);}
