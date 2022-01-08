@@ -35,3 +35,14 @@ code {
   background-color: var(--main-background);
   color: var(--primary-color);
 }
+
+#root {
+  display: flex;
+  flex-flow: wrap;
+}
+.primary-color {
+  color: var(--primary-color);
+}
+.secondary-color {
+  color: var(--secondary-color);
+}
