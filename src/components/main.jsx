@@ -35,7 +35,7 @@ const weathers = [
 
 export function DailyCard({date, weather, max, min}) {
   return <Card
-    header={<h3>{date}</h3>}
+    header={<h3 style={{margin: 0, fontWeight: 'normal'}}>{date}</h3>}
     content={<Image src={weatherToImage(weather)} alt={weather} />}
     footer={<MaxMin className='flex-container'>
       <span>{max}</span>
