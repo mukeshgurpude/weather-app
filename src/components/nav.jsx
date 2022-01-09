@@ -39,5 +39,8 @@ const Wrapper = styled.div`
   ${({search}) => search
     && 
   `justify-content: flex-start; padding: 1em;`
-}
+  }
+  @media (max-width: 600px) {
+    min-height: 100vh;
+  }
 `

@@ -11,6 +11,12 @@ export default function Location({text, select}) {
 const Wrapper = styled.div`
   gap: .5em;
   padding: .5em;
-  justify-content: space-evenly;
+  justify-content: space-between;
   width: 100%;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--primary-color);
+    border: 1px solid var(--secondary-color);
+  }
 `

@@ -16,6 +16,8 @@ const SidebarWrapper = styled.header`
 `
 const MainWrapper = styled.main`
   flex: 1;
+  padding: 1em 0;
+  max-width: 100%;
   @media(min-width: 600px) {
     flex: 3;
     min-height: 100vh;

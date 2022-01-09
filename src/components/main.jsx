@@ -79,6 +79,7 @@ const Temperature = styled.div`
 const Daily = styled.div`
   gap: .5rem;
   justify-content: space-between;
+  flex-flow: wrap;
   & h3 {
     margin: 0;
     margin-bottom: .5em;

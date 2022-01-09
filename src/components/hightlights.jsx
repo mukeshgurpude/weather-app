@@ -46,6 +46,10 @@ const Container = styled.section`
   flex-flow: column;
   gap: 2em;
 
+  &>div.flex-container {
+    flex-flow: wrap;
+  }
+
   & h3 {
     font-size: 1.5em;
     font-weight: 400;
