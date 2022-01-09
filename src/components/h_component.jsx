@@ -31,6 +31,7 @@ export function HumidityBar({value}) {
 const Wrapper = styled.div`
   width: 100%;
   padding: 1em;
+  max-width: 20em;
   position: relative;
 
   & span {
@@ -46,9 +47,11 @@ const Progress = styled.div`
   width: 100%;
   background-color: var(--primary-color);
   height: 8px;
+  border-radius: 8px;
 `
 const Filled = styled.div`
   width: ${props => props.value}%;
   height: 100%;
   background-color: var(--progressbar-background);
+  border-radius: 8px;
 `
