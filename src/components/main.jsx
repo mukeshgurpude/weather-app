@@ -35,7 +35,7 @@ const weathers = [
 
 export function DailyCard({date, weather, max, min}) {
   return <Card
-    header={<h3 style={{margin: 0, fontWeight: 'normal'}}>{date}</h3>}
+    header={<h3>{date}</h3>}
     content={<Image src={weatherToImage(weather)} alt={weather} />}
     footer={<MaxMin className='flex-container'>
       <span>{max}</span>
@@ -79,6 +79,14 @@ const Temperature = styled.div`
 const Daily = styled.div`
   gap: .5rem;
   justify-content: space-between;
+  & h3 {
+    margin: 0;
+    margin-bottom: .5em;
+    font-weight: normal;
+  }
+  & p {
+    margin: 8px;
+  }
 `
 const Footer = styled.footer``
 const MaxMin = styled.p`
