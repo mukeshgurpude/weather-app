@@ -51,7 +51,7 @@ const InputWrapper = styled.div`
   padding: 1em 1em;
   width: 100%;
 `
-const ButtonWrapper = styled.div`
+export const ButtonWrapper = styled.div`
   background-color: var(--button-background);
   color: var(--button-text-color);
   display: flex;

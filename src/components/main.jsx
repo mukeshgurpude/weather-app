@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import Card from './card'
 import TempButton from './toggle_buttons'
+import Highlights from './hightlights'
 import { weatherToImage } from '../utils/weather-map'
 
 const weathers = [
@@ -79,7 +80,6 @@ const Daily = styled.div`
   gap: .5rem;
   justify-content: space-between;
 `
-const Highlights = styled.div``
 const Footer = styled.footer``
 const MaxMin = styled.p`
   width: 100%;
