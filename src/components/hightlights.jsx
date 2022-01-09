@@ -1,6 +1,5 @@
 import styled from 'styled-components'
-import Card from './card'
-import { WindSpeed } from './h_component'
+import { WindSpeed, HumidityBar } from './h_component'
 
 function HighlightCard({title, metric, Footer}) {
   const match = metric?.match(/[\s\D%]+$/)
@@ -25,7 +24,7 @@ export default function Highlights() {
     <h3>Today's Highlights</h3>
     <Row className='flex-container'>
       <HighlightCard title='Wind status' metric='7mph' Footer={<WindSpeed rotation={150} direction='WSW'/>} />
-      <HighlightCard title='Humidity' metric='84%' />
+      <HighlightCard title='Humidity' metric='84%' Footer={<HumidityBar value={80.78} />} />
     </Row>
     <Row className='flex-container'>
       <HighlightCard title='Visibility' metric='6,4 miles' />
@@ -36,7 +35,7 @@ export default function Highlights() {
 
 const CardWrapper = styled.article`
   flex-flow: column nowrap;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   background-color: var(--sidebar-background);
   flex: 1;
   color: var(--secondary-color);

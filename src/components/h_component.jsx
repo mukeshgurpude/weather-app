@@ -1,3 +1,4 @@
+import styled from 'styled-components'
 import Icon from './icon'
 import { ButtonWrapper } from './nav'
 
@@ -16,3 +17,38 @@ export function WindSpeed({rotation, direction}) {
     <span>{direction}</span>
   </div>
 }
+
+export function HumidityBar({value}) {
+  return <Wrapper>
+    <span>0</span>
+    <span>50</span>
+    <span>100</span>
+    <span>%</span>
+    <Progress><Filled value={value} /></Progress>
+  </Wrapper>
+}
+
+const Wrapper = styled.div`
+  width: 100%;
+  padding: 1em;
+  position: relative;
+
+  & span {
+    position: absolute;
+    top: -.2em;
+    &:nth-child(1) {left: 1em;}
+    &:nth-child(2) {left: 50%;}
+    &:nth-child(3) {right: 1em;}
+    &:nth-child(4) {right: 1em; top: unset; bottom: 0;}
+  }
+`
+const Progress = styled.div`
+  width: 100%;
+  background-color: var(--primary-color);
+  height: 8px;
+`
+const Filled = styled.div`
+  width: ${props => props.value}%;
+  height: 100%;
+  background-color: var(--progressbar-background);
+`
