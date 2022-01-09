@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Icon from './icon'
-import { ButtonWrapper } from './nav'
+import { ButtonWrapper } from './quick-view'
 
 export function WindSpeed({rotation, direction}) {
   return <div className='flex-container' style={{gap: '.5em'}}>
