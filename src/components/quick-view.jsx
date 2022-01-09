@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import Icon from './icon'
 
-export default function QuickView({openSearch}) {
+export default function QuickView({openSearch, location}) {
   return <>
     <InputWrapper>
       <ButtonWrapper onClick={openSearch} children={<button style={{
@@ -33,7 +33,7 @@ export default function QuickView({openSearch}) {
       </div>
       <div className='flex-container'>
         <Icon icon='location_on' />
-        <span>Helsinki</span>
+        <span>{location}</span>
       </div>
     </About>
   </>

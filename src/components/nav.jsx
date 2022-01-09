@@ -8,7 +8,7 @@ export default function Sidebar() {
   const [isSearchOpen, setSearch] = useState(false)
   const [location, setLocation] = useState('Helsinki')
 
-  return <Wrapper className='secondary-color'>
+  return <Wrapper className='secondary-color' search={isSearchOpen} >
     {
       isSearchOpen
       ?
@@ -35,4 +35,9 @@ const Wrapper = styled.div`
   justify-content: space-around;
   gap: .8em;
   align-items: center;
+
+  ${({search}) => search
+    && 
+  `justify-content: flex-start; padding: 1em;`
+}
 `
