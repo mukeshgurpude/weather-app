@@ -32,6 +32,8 @@ code {
 
   --progressbar-background: #FFEC65;
 
+  --search-button-background: #3C47E9;
+
   background-color: var(--main-background);
   color: var(--primary-color);
 }
