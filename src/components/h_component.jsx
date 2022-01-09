@@ -38,7 +38,7 @@ const Wrapper = styled.div`
     position: absolute;
     top: -.2em;
     &:nth-child(1) {left: 1em;}
-    &:nth-child(2) {left: 50%;}
+    &:nth-child(2) {left: calc(50% - 1em);}
     &:nth-child(3) {right: 1em;}
     &:nth-child(4) {right: 1em; top: unset; bottom: 0;}
   }
