@@ -58,7 +58,7 @@ export default function Main() {
       }
     </Daily>
     <Highlights />
-    <Footer />
+    <Footer>created by <a href='https://github.com/mukeshgurpude'>@mukeshgurpude</a> - devChallenges.io</Footer>
   </Wrapper>
 }
 
@@ -88,7 +88,13 @@ const Daily = styled.div`
     margin: 8px;
   }
 `
-const Footer = styled.footer``
+const Footer = styled.footer`
+  text-align: center;
+  color: var(--secondary-color);
+  & a {
+    color: var(--primary-color);
+  }
+`
 const MaxMin = styled.p`
   width: 100%;
   justify-content: space-between;
