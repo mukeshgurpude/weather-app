@@ -1,7 +1,8 @@
 import styled from 'styled-components'
+import { weatherToImage } from '../utils/weather-map'
 import Icon from './icon'
 
-export default function QuickView({openSearch, location}) {
+export default function QuickView({openSearch, weather}) {
   return <>
     <InputWrapper>
       <ButtonWrapper onClick={openSearch} children={<button style={{
@@ -15,13 +16,13 @@ export default function QuickView({openSearch, location}) {
     </InputWrapper>
     <Banner
       className='flex-container'
-      children={<Image src='./images/Shower.png' alt=''/>}
+      children={<Image src={weatherToImage(weather.today.weather_state_abbr)} alt=''/>}
     />
     <h1 style={{fontSize: '48px'}}>
       <Text className='primary-color' children='15'/>
     <Text style={{fontSize: '36px'}} children='°c'/>
     </h1>
-    <h2><Text children='Shower' /></h2>
+    <h2><Text children={weather.today.weather_state_name} /></h2>
     <About>
       <div className='flex-container' style={{
         justifyContent: 'space-between',
@@ -29,11 +30,11 @@ export default function QuickView({openSearch, location}) {
       }}>
         <span>Today</span>
         <span style={{fontWeight: 'bold'}}>·</span>
-        <span>Fri, 5 Jun</span>
+        <span>{weather.today.date}</span>
       </div>
       <div className='flex-container'>
         <Icon icon='location_on' />
-        <span>{location}</span>
+        <span>{weather.title}</span>
       </div>
     </About>
   </>

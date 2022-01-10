@@ -1,13 +1,67 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components'
 
 import Sidebar from './components/nav'
 import Main from './components/main';
+import { get_weather } from './utils/api';
 
 function App() {
+  const [woeid, setWoeid] = useState('')
+  const [weather, setWeather] = useState({
+    title: 'Helinski',
+    week: [
+      {
+        date: 'Tomorrow',
+        weather: 'sleet',
+        max: '16',
+        min: '11',
+      }, {
+        date: 'Sun, 7 Jun',
+        weather: 'sleet',
+        max: '16',
+        min: '11',
+      }, {
+        date: 'Mon, 8 Jun',
+        weather: 'thunderstorm',
+        max: '16',
+        min: '11',
+      }, {
+        date: 'Tue, 9 Jun',
+        weather: 'Light Cloud',
+        max: '16',
+        min: '11',
+      }, {
+        date: 'Wed, 10 Jun',
+        weather: 'Heavy Rain',
+        max: '16',
+        min: '11',
+      }
+    ],
+    today: {
+      the_temp: '15',
+      date: (new Date()).toLocaleString('en-US', {weekday: 'short', day: 'numeric', month: 'short'}),
+      weather_state_name: 'Shower',
+      weather_state_abbr: 's',
+      wind_speed: '5',
+      wind_direction_compass: 'WSW',
+      wind_direction: '277',
+      humidity: '83',
+      visibility: '6.4',
+      air_pressure: '998',
+    }
+  })
+
+  useEffect(() => {
+    if(!woeid) return
+    get_weather(woeid)
+      .then(data => setWeather(data))
+  }, [woeid])
+
+  console.log(weather)
+
   return <>
-    <SidebarWrapper role='navigation' children={<Sidebar/>}/>
-    <MainWrapper role='main' children={<Main/>}/>
+    <SidebarWrapper role='navigation' children={<Sidebar woeid={woeid} setWoeid={setWoeid} weather={weather}/>}/>
+    <MainWrapper role='main' children={<Main weather={weather}/>}/>
   </>
 }
 

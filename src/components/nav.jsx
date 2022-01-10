@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import QuickView from './quick-view'
 import Search from './search'
 
-export default function Sidebar() {
+export default function Sidebar({woeid, setWoeid, weather}) {
 
   const [isSearchOpen, setSearch] = useState(false)
   const [location, setLocation] = useState('Helsinki')
@@ -16,12 +16,12 @@ export default function Sidebar() {
         closeSearch={() => setSearch(false)}
         location={location}
         setLocation={setLocation}
+        setWoeid={setWoeid}
       />
       :
       <QuickView
         openSearch={() => setSearch(true)}
-        location={location}
-        setLocation={setLocation}
+        weather = {weather}
       />
     }
   </Wrapper>

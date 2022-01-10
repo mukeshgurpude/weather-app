@@ -4,47 +4,18 @@ import TempButton from './toggle_buttons'
 import Highlights from './hightlights'
 import { weatherToImage } from '../utils/weather-map'
 
-const weathers = [
-  {
-    date: 'Tomorrow',
-    weather: 'sleet',
-    max: '16°C',
-    min: '11°C',
-  }, {
-    date: 'Sun, 7 Jun',
-    weather: 'sleet',
-    max: '16°C',
-    min: '11°C',
-  }, {
-    date: 'Mon, 8 Jun',
-    weather: 'thunderstorm',
-    max: '16°C',
-    min: '11°C',
-  }, {
-    date: 'Tue, 9 Jun',
-    weather: 'Light Cloud',
-    max: '16°C',
-    min: '11°C',
-  }, {
-    date: 'Wed, 10 Jun',
-    weather: 'Heavy Rain',
-    max: '16°C',
-    min: '11°C',
-  }
-]
-
 export function DailyCard({date, weather, max, min}) {
   return <Card
     header={<h3>{date}</h3>}
-    content={<Image src={weatherToImage(weather)} alt={weather} />}
+    content={<Image title={weather} src={weatherToImage(weather)} alt={weather} />}
     footer={<MaxMin className='flex-container'>
-      <span>{max}</span>
-      <span className='secondary-color'>{min}</span>
+      <span>{max}°C</span>
+      <span className='secondary-color'>{min}°C</span>
     </MaxMin>}
   />
 }
 
-export default function Main() {
+export default function Main({weather}) {
   return <Wrapper className='flex-container'>
     <Temperature className='flex-container' >
       <TempButton text='°C' active />
@@ -52,12 +23,12 @@ export default function Main() {
     </Temperature>
     <Daily className='flex-container'>
       {
-        weathers.map(({date, weather, max, min}) => (
+        weather.week.map(({date, weather, max, min}) => (
           <DailyCard key={date} date={date} weather={weather} max={max} min={min} />
         ))
       }
     </Daily>
-    <Highlights />
+    <Highlights data={weather.today} />
     <Footer>created by <a href='https://github.com/mukeshgurpude'>@mukeshgurpude</a> - devChallenges.io</Footer>
   </Wrapper>
 }
