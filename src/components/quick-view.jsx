@@ -16,7 +16,7 @@ export default function QuickView({openSearch, weather}) {
     </InputWrapper>
     <Banner
       className='flex-container'
-      children={<Image src={weatherToImage(weather.today.weather_state_abbr)} alt=''/>}
+      children={<Image src={weatherToImage(weather.today.weather_state_name)} alt=''/>}
     />
     <h1 style={{fontSize: '48px'}}>
       <Text className='primary-color' children='15'/>
