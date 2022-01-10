@@ -2,12 +2,16 @@ import { useState } from 'react'
 import styled from 'styled-components'
 import Icon from './icon'
 import Location from './location'
+import { search_location } from '../utils/api'
 
-export default function Search({closeSearch, location, setLocation}) {
+export default function Search({closeSearch, location, setLocation, setWoeid}) {
   const [loc, setLoc] = useState('')
   const [suggestions, setSuggestions] = useState([])
 
-  const mockSuggestions = () => setSuggestions(['London', 'Barcelona', 'New beach']);
+  function get_location() {
+    search_location(loc)
+      .then(setSuggestions)
+  }
 
   return <>
     <Buttons className='flex-container'>
@@ -19,15 +23,16 @@ export default function Search({closeSearch, location, setLocation}) {
           onChange={e => setLoc(e.target.value)}
           placeholder='search location'/>
       </InputWrapper>
-      <SearchButton onClick={mockSuggestions} children='Search'/>
+      <SearchButton onClick={get_location} children='Search'/>
     </Buttons>
     <Output className='flex-container'>
       {
         suggestions.map(suggestion => <Location
-          key={suggestion}
-          text={suggestion}
+          key={suggestion.woeid}
+          text={suggestion.title}
           select={() => {
-            setLocation(suggestion)
+            setLocation(suggestion.title)
+            setWoeid(suggestion.woeid)
             setLoc('')
             closeSearch()
           }}

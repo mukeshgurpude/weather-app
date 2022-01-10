@@ -11,7 +11,7 @@ export function WindSpeed({rotation, direction}) {
       <Icon
         icon='near_me'
         className='flex-container'
-        style={{fontSize: '1em',transform: `rotate(${rotation + 34}deg)`}}
+        style={{fontSize: '1em',transform: `rotate(${parseFloat(rotation) + 40}deg)`}}
       />}
     />
     <span>{direction}</span>

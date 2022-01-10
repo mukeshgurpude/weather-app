@@ -19,16 +19,16 @@ function HighlightCard({title, metric, Footer}) {
   </CardWrapper>
 }
 
-export default function Highlights() {
+export default function Highlights({data}) {
   return <Container className='flex-container'>
     <h3>Today's Highlights</h3>
     <Row className='flex-container'>
-      <HighlightCard title='Wind status' metric='7mph' Footer={<WindSpeed rotation={150} direction='WSW'/>} />
-      <HighlightCard title='Humidity' metric='84%' Footer={<HumidityBar value={80.78} />} />
+      <HighlightCard title='Wind status' metric={`${data.wind_speed}mph`} Footer={<WindSpeed rotation={data.wind_direction} direction={data.wind_direction_compass}/>} />
+      <HighlightCard title='Humidity' metric={`${data.humidity}%`} Footer={<HumidityBar value={data.humidity} />} />
     </Row>
     <Row className='flex-container'>
-      <HighlightCard title='Visibility' metric='6,4 miles' />
-      <HighlightCard title='Air Pressure' metric='998 mb' />
+      <HighlightCard title='Visibility' metric={`${data.visibility} miles`} />
+      <HighlightCard title='Air Pressure' metric={`${data.air_pressure} mb`} />
     </Row>
   </Container>
 }
