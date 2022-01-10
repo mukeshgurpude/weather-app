@@ -57,8 +57,6 @@ function App() {
       .then(data => setWeather(data))
   }, [woeid])
 
-  console.log(weather)
-
   return <>
     <SidebarWrapper role='navigation' children={<Sidebar woeid={woeid} setWoeid={setWoeid} weather={weather}/>}/>
     <MainWrapper role='main' children={<Main weather={weather}/>}/>

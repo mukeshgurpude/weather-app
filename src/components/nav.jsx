@@ -22,6 +22,7 @@ export default function Sidebar({woeid, setWoeid, weather}) {
       <QuickView
         openSearch={() => setSearch(true)}
         weather = {weather}
+        setWoeid={setWoeid}
       />
     }
   </Wrapper>
