@@ -1,8 +1,9 @@
 import styled from 'styled-components'
+import { search_location } from '../utils/api'
 import { weatherToImage } from '../utils/weather-map'
 import Icon from './icon'
 
-export default function QuickView({openSearch, weather}) {
+export default function QuickView({openSearch, weather, setWoeid}) {
   return <>
     <InputWrapper>
       <ButtonWrapper onClick={openSearch} children={<button style={{
@@ -12,7 +13,20 @@ export default function QuickView({openSearch, weather}) {
         width: '100%',
         cursor: 'pointer'
       }}>Search for places</button>} />
-      <ButtonWrapper style={{borderRadius: '50%'}} children={<Icon icon='gps_fixed'/>} />
+      <ButtonWrapper
+        onClick={() => {
+          navigator
+            .geolocation
+            .getCurrentPosition(({coords}) => {
+              const {latitude, longitude} = coords
+              search_location(`${latitude},${longitude}`)
+                .then((data) => {
+                  data.length && setWoeid(data[0].woeid)
+                })
+            })
+        }}
+        style={{borderRadius: '50%'}}
+        children={<Icon icon='gps_fixed'/>} />
     </InputWrapper>
     <Banner
       className='flex-container'
