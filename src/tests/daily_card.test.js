@@ -13,12 +13,26 @@ it('Default unit celsius', async () => {
   render(<Main weather={default_weather} />)
   const temp = await screen.findAllByText(/\d+°C/)
   expect(temp.length).toBeGreaterThan(0)
+  expect(() => {
+    screen.getAllByText(/\d+°F/)
+  }).toThrow()
 })
 
-xit('Default unit celsius', async () => {
+it('Unit can be changed', async () => {
   render(<Main weather={default_weather} />)
-  const button = screen.getByRole('BUTTON', {name: '°C'})
-  userEvent.click(button)
-  const temp = await screen.findAllByText(/\d+°C/)
+  userEvent.click(screen.getByRole('button', {name: '°F'}))
+  let temp = await screen.findAllByText(/\d+°F/)
   expect(temp.length).toBeGreaterThan(0)
+  
+  expect(() => {
+    screen.getAllByText(/\d+°C/)
+  }).toThrow()
+
+  userEvent.click(screen.getByRole('button', {name: '°C'}))
+  temp = await screen.findAllByText(/\d+°C/)
+  expect(temp.length).toBeGreaterThan(0)
+  
+  expect(() => {
+    screen.getAllByText(/\d+°F/)
+  }).toThrow()
 })
