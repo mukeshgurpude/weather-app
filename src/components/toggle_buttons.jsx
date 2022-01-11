@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
-export default function TempButton({text, active}) {
-  return <Button active={!!active}>{text}</Button>
+export default function TempButton({text, active, ...props}) {
+  return <Button active={!!active} {...props}>{text}</Button>
 }
 
 const Button = styled.button`
@@ -15,6 +15,7 @@ const Button = styled.button`
   ${({active}) => active
     && 
     `color: var(--button-active-color);
-    background-color: var(--button-active-background);`
+    background-color: var(--button-active-background);
+    cursor: not-allowed;`
   }
 `

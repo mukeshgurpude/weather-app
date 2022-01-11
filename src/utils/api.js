@@ -1,7 +1,7 @@
 const BASE_URL = 'https://cors-anywhere.herokuapp.com/metaweather.com'
 
 export async function search_location(query) {
-  const search = query.includes(',')?'lattlong':'search'
+  const search = query.includes(',')?'lattlong':'query'
   return fetch(`${BASE_URL}/api/location/search/?${search}=${query}`)
     .then(res => res.json())
     .then(data => data.map(item => ({woeid: item.woeid, title: item.title})))

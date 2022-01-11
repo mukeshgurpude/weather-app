@@ -1,30 +1,34 @@
+import { useState } from 'react'
 import styled from 'styled-components'
 import Card from './card'
 import TempButton from './toggle_buttons'
 import Highlights from './hightlights'
 import { weatherToImage } from '../utils/weather-map'
+import { getTemperature } from '../utils/temperature'
 
-export function DailyCard({date, weather, max, min}) {
+export function DailyCard({date, weather, max, min, unit}) {
   return <Card
     header={<h3>{date}</h3>}
     content={<Image title={weather} src={weatherToImage(weather)} alt={weather} />}
     footer={<MaxMin className='flex-container'>
-      <span>{max}°C</span>
-      <span className='secondary-color'>{min}°C</span>
+      <span>{getTemperature(max, unit)}°{unit}</span>
+      <span className='secondary-color'>{getTemperature(min, unit)}°{unit}</span>
     </MaxMin>}
   />
 }
 
 export default function Main({weather}) {
+  const [unit, setUnit] = useState('C')
+
   return <Wrapper className='flex-container'>
     <Temperature className='flex-container' >
-      <TempButton text='°C' active />
-      <TempButton text='°F' />
+      <TempButton text='°C' active={unit === 'C'} onClick={() => setUnit('C')} />
+      <TempButton text='°F' active={unit === 'F'} onClick={() => setUnit('F')} />
     </Temperature>
     <Daily className='flex-container'>
       {
         weather.week.map(({date, weather, max, min}) => (
-          <DailyCard key={date} date={date} weather={weather} max={max} min={min} />
+          <DailyCard key={date} date={date} weather={weather} max={max} min={min} unit={unit} />
         ))
       }
     </Daily>
