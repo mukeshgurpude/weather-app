@@ -4,7 +4,7 @@ import Icon from './icon'
 import Location from './location'
 import { search_location } from '../utils/api'
 
-export default function Search({closeSearch, location, setLocation, setWoeid}) {
+export default function Search({closeSearch, setWoeid}) {
   const [loc, setLoc] = useState('')
   const [suggestions, setSuggestions] = useState([])
 
@@ -31,7 +31,6 @@ export default function Search({closeSearch, location, setLocation, setWoeid}) {
           key={suggestion.woeid}
           text={suggestion.title}
           select={() => {
-            setLocation(suggestion.title)
             setWoeid(suggestion.woeid)
             setLoc('')
             closeSearch()

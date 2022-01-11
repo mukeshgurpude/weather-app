@@ -6,7 +6,6 @@ import Search from './search'
 export default function Sidebar({setWoeid, weather}) {
 
   const [isSearchOpen, setSearch] = useState(false)
-  const [location, setLocation] = useState('Helsinki')
 
   return <Wrapper className='secondary-color' search={isSearchOpen} >
     {
@@ -14,8 +13,6 @@ export default function Sidebar({setWoeid, weather}) {
       ?
       <Search
         closeSearch={() => setSearch(false)}
-        location={location}
-        setLocation={setLocation}
         setWoeid={setWoeid}
       />
       :

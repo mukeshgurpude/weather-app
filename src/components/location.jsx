@@ -2,7 +2,11 @@ import styled from 'styled-components'
 import Icon from './icon'
 
 export default function Location({text, select}) {
-  return <Wrapper className='flex-container' onClick={() => select(text)}>
+  return <Wrapper
+    className='flex-container'
+    onClick={() => select(text)}
+    role='link'
+  >
     <span>{text}</span>
     <Icon icon='chevron_right'/>
   </Wrapper>
