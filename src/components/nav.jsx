@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import QuickView from './quick-view'
 import Search from './search'
 
-export default function Sidebar({woeid, setWoeid, weather}) {
+export default function Sidebar({setWoeid, weather}) {
 
   const [isSearchOpen, setSearch] = useState(false)
   const [location, setLocation] = useState('Helsinki')

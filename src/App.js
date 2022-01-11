@@ -60,7 +60,7 @@ function App() {
   }, [woeid])
 
   return <>
-    <SidebarWrapper role='navigation' children={<Sidebar woeid={woeid} setWoeid={setWoeid} weather={weather}/>}/>
+    <SidebarWrapper role='navigation' children={<Sidebar setWoeid={setWoeid} weather={weather}/>}/>
     <MainWrapper role='main' children={<Main weather={weather}/>}/>
   </>
 }
